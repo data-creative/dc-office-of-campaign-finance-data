@@ -4,7 +4,7 @@ Data from https://efiling.ocf.dc.gov/ as if it had come from an API.
 
 ## Usage
 
-Bypass manual data downloads in favor of making programmatic use of the .csv and .json files in this repository.
+Bypass manual data downloads in favor of making programmatic use of the [.csv](/data/csv) and [.json](/data/json) files in this repository.
 
 ## Data Updating
 
@@ -33,30 +33,46 @@ Locate a dropdown menu containing the following `Filer Type` values:
  + Senators & Representatives
  + Constituent Service Program
 
-##### Contributions
-
-![filer-type-dropdown-menu-screenshot](/images/download-contributions.png)
+##### Downloading Contribution Reports
 
 Notice the default `Type` toggle selection of "Contributions". Make sure this selection stays active during the entirety of this process.
+
+![filer-type-dropdown-menu-screenshot](/images/download-contributions.png)
 
 For each `Filer Type`, execute the following tasks in order:
 
  1. Select the filer type from the dropdown
- 2. Click the Search button
- 3. Click the Export button
+ 2. Click the Search button, and wait for the resulting data
+ 3. Click the Export button to export data in .csv format
  4. Move the resulting .csv file into its proper place in this repository.
 
-Store the files in the [contributions](/data/contributions) directory.
+Store contribution report files in the [contributions](/reports/contributions) directory as **`FILER_TYPE`.csv**.
 
-##### Expenditures
+```` sh
+mv ~/Downloads/DownloadDataSearchResult.csv path/to/repo/reports/contributions/`FILER_TYPE`.csv
+````
 
-![filer-type-dropdown-menu-screenshot](/images/download-expenditures.png)
+##### Downloading Expenditure Reports
 
 Repeat the process for downloading contributions, except switch the `Type` toggle to "Expenditures" and make sure this selection stays active during the entirety of the process.
 
-Store the files in the [expenditures](/data/expenditures) directory.
+![filer-type-dropdown-menu-screenshot](/images/download-expenditures.png)
 
-### Version Release Process
+Store contribution report files in the [expenditures](/reports/expenditures) directory as **`FILER_TYPE`.csv**.
+
+```` sh
+mv ~/Downloads/DownloadDataSearchResult.csv path/to/repo/data/expenditures/`FILER_TYPE`.csv
+````
+
+##### Converting Reports to Data
+
+Run the report-converter script.
+
+```` rb
+ruby lib/convert_reports_to_data.rb
+````
+
+##### Versioning the Data
 
 After updating the data on a new branch, submit a pull request for the data updates to be merged into the master branch.
 
