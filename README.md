@@ -1,6 +1,6 @@
-# Washington DC Office of Campaign Finance - Future API
+# Washington DC Office of Campaign Finance - Data
 
-Data from https://efiling.ocf.dc.gov/ as if it had come from an API.
+Raw, unaltered data from https://efiling.ocf.dc.gov/ as if it had come straight from an API without any manual intervention.
 
 ## Usage
 
@@ -61,7 +61,7 @@ Repeat the process for downloading contributions, except switch the `Type` toggl
 Store contribution report files in the [expenditures](/reports/expenditures) directory as **`FILER_TYPE`.csv**.
 
 ```` sh
-mv ~/Downloads/DownloadDataSearchResult.csv path/to/repo/data/expenditures/`FILER_TYPE`.csv
+mv ~/Downloads/DownloadDataSearchResult.csv path/to/repo/reports/expenditures/`FILER_TYPE`.csv
 ````
 
 ##### Converting Reports to Data
